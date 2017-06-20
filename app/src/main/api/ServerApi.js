@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 // eslint-disable-next-line
-export const SERVER_URI = __DEVELOPMENT__ ? 'http://localhost:3001/' : '/api/';
+export const SERVER_URI = 'https://api-summit-2017-nodejs-workshop-backend.azurewebsites.net/';
 const AUTH_TOKEN = 'donald-dump';
 
 export const URLS = {
@@ -40,7 +40,7 @@ export default {
     },
     subscribeStream(onNewTweet) {
         this.unSubscribeStream();
-        eventStream = new WebSocket('ws://localhost:3001');
+        eventStream = new WebSocket('ws://api-summit-2017-nodejs-workshop-backend.azurewebsites.net');
         eventStream.addEventListener('message', event => onNewTweet(JSON.parse(event.data)));
         /* if (window.EventSource) {
          eventStream = new EventSource(`${SERVER_URI}${URLS.TWEETS_STREAM}?authorization=${AUTH_TOKEN}`);
