@@ -7,7 +7,7 @@ const eventEmitter = require('../server/Events');
 const logger = require('./Logger');
 const security = require('../security/Security');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const server = restify.createServer({
     name: 'Twttr',
