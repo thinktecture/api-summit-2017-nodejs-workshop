@@ -14,8 +14,10 @@ module.exports = {
         twttr: ['./src/main/Twttr.js']
     },
     output: {
-        filename: './dist/[name].js',
-        chunkFilename: './dist/[name].js'
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -64,7 +66,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: './dist/[hash].[ext]'
+                        name: '[hash].[ext]'
                     }
                 }]
             }
@@ -80,7 +82,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: Infinity,
-            filename: './dist/vendor.js'
+            filename: 'vendor.js'
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
@@ -104,12 +106,12 @@ module.exports = {
             },
         }),
         new ExtractTextPlugin({
-            filename: './dist/twttr.css',
+            filename: 'twttr.css',
             allChunks: true
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
-            reportFilename: './dist/report.html',
+            reportFilename: 'report.html',
             openAnalyzer: false
         })
     ]

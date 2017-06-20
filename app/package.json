@@ -8,7 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --port 3000 --config webpack.config.js --progress --inline",
     "lint": "eslint src",
-    "release": "webpack -p --config webpack.prod.config.js"
+    "release": "webpack -p --config webpack.prod.config.js && cp src/index.html dist/"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -20,7 +20,8 @@
     "react-addons-transition-group": "^15.5.2",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
-    "reactstrap": "^4.6.2"
+    "reactstrap": "^4.6.2",
+    "express": "^4.15.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
